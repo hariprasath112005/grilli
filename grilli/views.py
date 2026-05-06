@@ -5,14 +5,30 @@ from .forms import TableForm, EmailForm
 # Create your views here.
 def index(request):
     if request.method =="POST":
-        # Forms are handled by Netlify Forms
-        messages.info(request, "Subscription Submitted")
+        form = EmailForm(request.POST)
+
+        if form.is_valid():
+            form.save()
+         
+            messages.info(request, "Booking Submitted")
+        
+        else:
+            form = EmailForm()
+
     return render(request, 'index.html')
 
 def book_table(request):
     if request.method =="POST":
-        # Forms are handled by Netlify Forms
-        messages.info(request, "Booking Submitted")
+        form = TableForm(request.POST)
+
+        if form.is_valid():
+            form.save()
+         
+            messages.info(request, "Booking Submitted")
+        
+        else:
+            form = TableForm()
+
     return render(request, 'book_table.html')
 
 def about(request):
