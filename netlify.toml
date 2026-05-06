@@ -1,0 +1,11 @@
+[build]
+  command = "pip install -r requirements.txt && python manage.py collectstatic --noinput"
+  publish = "staticfiles"
+
+[functions]
+  included_files = ["backend/**", "grilli/**", "templates/**", "db.sqlite3"]
+
+[[redirects]]
+  from = "/*"
+  to = "/.netlify/functions/handler"
+  status = 200
