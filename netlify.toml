@@ -4,9 +4,6 @@
 
 [functions]
   directory = "functions"
-  node_bundler = "esbuild"
-  # Use the python runtime
-  runtime = "python"
   included_files = ["backend/**", "grilli/**", "db.sqlite3", "manage.py"]
 
 [[redirects]]
